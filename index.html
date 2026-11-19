@@ -703,7 +703,7 @@ const tramos = [...document.querySelectorAll(".camino")].map((el, i) => {
   const contenedor = el.closest(".escena") || el;
   const trasEscena = !!(contenedor.previousElementSibling && contenedor.previousElementSibling.classList.contains("escena")) ||
     !!(el.closest("#dress-code") && document.querySelector("#itinerario .escena:last-of-type"));
-  return { svg: el, lz, trasEscena };
+  return { svg: el, lz, trasEscena, clase: "camino" };
 });
 function pintar() {
   const vh = innerHeight;
@@ -714,24 +714,33 @@ function pintar() {
     const tras = t.trasEscena ? 0.85 : 0.95;
     let p = quieto ? 1 : (vh * tras - r.top) / (r.height + vh * (tras - 0.75));
     p = Math.min(1, Math.max(0, p));
-    t.meta = p; if (t.ver === undefined) { t.ver = p; revelar(t.lz, p); } else suavizarCaminos();
+    objetivo(t, p);
   }
 }
-// El camino sigue al scroll con un pequeño retraso suave, para que se dibuje continuo aunque el celular
-// mande el scroll a saltos
-let caminando = false;
-function suavizarCaminos() {
-  if (caminando) return; caminando = true;
-  requestAnimationFrame(function paso() {
-    let falta = false;
-    for (const t of tramos) {
-      if (t.meta === undefined) continue;
-      const d = t.meta - t.ver;
-      if (Math.abs(d) > 0.0008) { t.ver += d * 0.16; falta = true; } else t.ver = t.meta;
-      revelar(t.lz, t.ver);
-    }
-    if (falta) requestAnimationFrame(paso); else caminando = false;
-  });
+// Todo lo que se anima con el scroll sigue su posición con un pequeño retraso suave:
+// así se ve continuo aunque el celular mande el scroll a saltos
+const suaves = new Set();
+let suavizando = false;
+function aplicarP(o, v) {
+  if (o.clase === "camino") revelar(o.lz, v);
+  else if (o.clase === "sc-pluma") escribir(o.el.querySelector(".escrito"), v);
+  else if (o.clase === "sc-pinta") pintarIlus(o.el, v);
+  else { o.el.style.setProperty("--p", v); o.el.classList.toggle("completo", v >= 1); }
+}
+function objetivo(o, p) {
+  o.meta = p;
+  if (o.ver === undefined || quieto) { o.ver = p; aplicarP(o, p); return; }
+  if (Math.abs(p - o.ver) < 0.0005) return;
+  suaves.add(o);
+  if (!suavizando) { suavizando = true; requestAnimationFrame(pasoSuave); }
+}
+function pasoSuave() {
+  for (const o of suaves) {
+    const d = o.meta - o.ver;
+    if (Math.abs(d) > 0.0015) o.ver += d * 0.16; else { o.ver = o.meta; suaves.delete(o); }
+    aplicarP(o, Math.round(o.ver * 10000) / 10000);
+  }
+  if (suaves.size) requestAnimationFrame(pasoSuave); else suavizando = false;
 }
 let pendiente = false;
 addEventListener("scroll", () => { if (!pendiente) { pendiente = true; requestAnimationFrame(() => { pendiente = false; pintar(); if (typeof animar === "function") animar(); if (typeof animarEscenas === "function") animarEscenas(); }); } }, { passive: true });
@@ -817,10 +826,7 @@ function animar() {
     const r = Math.round(p * 1000) / 1000;
     if (a.p === r) continue;
     a.p = r;
-    if (a.clase === "sc-pluma") { escribir(a.el.querySelector(".escrito"), r); continue; }
-    if (a.clase === "sc-pinta") { pintarIlus(a.el, r); continue; }
-    a.el.style.setProperty("--p", r);
-    a.el.classList.toggle("completo", r >= 1);
+    objetivo(a, r);
   }
 }
 animar();
@@ -943,10 +949,8 @@ function animarEscenas() {
       const r = Math.round(p * 1000) / 1000;
       if (pt.p === r) continue;
       pt.p = r;
-      if (pt.el.dataset.sc === "sc-pluma") { escribir(pt.el.querySelector(".escrito"), r); continue; }
-      if (pt.el.dataset.sc === "sc-pinta") { pintarIlus(pt.el, r); continue; }
-      pt.el.style.setProperty("--p", r);
-      pt.el.classList.toggle("completo", r >= 1);
+      pt.clase = pt.el.dataset.sc;
+      objetivo(pt, r);
     }
   }
 }
