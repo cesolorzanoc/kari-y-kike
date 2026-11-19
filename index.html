@@ -114,7 +114,7 @@ header + .lago-hero { width: auto; max-width: min(100%, 760px); max-height: 34vh
 .item .flecha { filter: url(#acuarela-oro); }
 
 /* ---------- Camino de acuarela que se pinta al bajar ---------- */
-.camino { display: block; width: 100%; max-width: 440px; height: auto; margin: 0 auto; overflow: visible; }
+.camino { display: block; width: 100%; max-width: 560px; height: auto; margin: 0 auto; overflow: visible; }
 .camino path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .camino .lavado { stroke: #a9b996; stroke-width: 12; stroke-opacity: .28; }
 .camino .cuerpo { stroke: #8ea078; stroke-width: 5; stroke-opacity: .6; }
@@ -298,8 +298,8 @@ footer .lago-hero { margin-top: 26px; }
   canvas.dress-ilus { width: 88% !important; max-width: 88% !important; }
   header + canvas.lago-hero, footer canvas.lago-hero { width: 84% !important; max-width: 84% !important; }
   .icono { height: 42px; }
-  .camino { max-width: 64%; }
-  .con-escenas .escena-fija > .camino { max-width: 64%; }
+  .camino { max-width: 84%; }
+  .con-escenas .escena-fija > .camino { max-width: 84%; }
   .dress-grid { grid-template-columns: 1fr; gap: 16px; }
   .dress-grid p { font-size: 14px; }
   .dress-grid a { font-size: 13px; }
@@ -747,7 +747,7 @@ function pintar() {
     const r = t.svg.getBoundingClientRect();
     // termina de dibujarse cuando su punta llega al 75% de la pantalla, justo antes de lo que sigue
     // los caminos que salen justo debajo de una escena fija esperan a que la escena se suelte
-    const tras = t.trasEscena ? 0.85 : 0.95;
+    const tras = t.trasEscena ? 0.88 : 1.0;
     let p = quieto ? 1 : (vh * tras - r.top) / (r.height + vh * (tras - 0.75));
     p = Math.min(1, Math.max(0, p));
     objetivo(t, p);
@@ -773,7 +773,7 @@ function objetivo(o, p) {
 function pasoSuave() {
   for (const o of suaves) {
     const d = o.meta - o.ver;
-    if (Math.abs(d) > 0.0015) o.ver += d * 0.16; else { o.ver = o.meta; suaves.delete(o); }
+    if (Math.abs(d) > 0.0015) o.ver += d * (o.clase === "camino" ? 0.09 : 0.16); else { o.ver = o.meta; suaves.delete(o); }
     aplicarP(o, Math.round(o.ver * 10000) / 10000);
   }
   if (suaves.size) requestAnimationFrame(pasoSuave); else suavizando = false;
