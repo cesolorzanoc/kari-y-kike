@@ -172,6 +172,10 @@ section.sigue > .camino { margin-top: 22px; margin-bottom: 30px; }
   -webkit-mask-position: calc((1 - var(--p, 0)) * 100%) 0; mask-position: calc((1 - var(--p, 0)) * 100%) 0; }
 .sc-escribe.completo { -webkit-mask-image: none; mask-image: none; }
 .sc-sube { opacity: var(--p, 0); }
+/* Cada texto que aparece va en su propia capa: el celular pinta su acuarela una sola vez
+   y después solo cambia la transparencia (antes recalculaba el efecto en cada movimiento) */
+.sc-sube, .sc-mece { will-change: opacity, transform; transform: translateZ(0); }
+.sc-sube.completo { will-change: auto; }
 .sc-mece { opacity: var(--p, 0); transform-origin: 50% 80%;
   transform: rotate(calc((1 - var(--p, 0)) * -12deg)) scale(calc(.82 + var(--p, 0) * .18)); }
 
