@@ -279,12 +279,44 @@ footer { text-align: center; padding: 84px 0 0; }
 .monograma { font-family: var(--font-script); font-size: calc(66px * var(--script-scale)); line-height: 1; margin: 8px 0 0; }
 footer .lago-hero { margin-top: 26px; }
 
-@media (max-width: 440px) {
-  body { font-size: 18px; }
+@media (max-width: 500px) {
+  /* En celular todo más pequeño y con más aire a los lados, como se siente en la compu */
+  body { font-size: 15px; line-height: 1.6; }
+  .wrap { padding: 0 40px; }
+  section { padding-top: 56px; }
   .hero { padding-top: 84px; }
-  .dress-grid { grid-template-columns: 1fr; gap: 18px; }
-  .cuenta b { font-size: 30px; }
-  .cuenta span { font-size: 10px; letter-spacing: .14em; }
+  .eyebrow { font-size: 10px; letter-spacing: .3em; }
+  .lede, .lugar-hero, .nota, .pie-rsvp { font-size: 14px; }
+  .fecha-hero { font-size: 16px; }
+  .pase-hero { font-size: 14px; }
+  .escrito { --k: calc(11.5vw * var(--script-scale) / var(--fs)); }
+  .titulo .escrito { --k: calc(9.6vw * var(--script-scale) / var(--fs)); }
+  .monograma .escrito { --k: calc(11vw * var(--script-scale) / var(--fs)); }
+  .divisor { width: 40px; }
+  .ilus, canvas.ilus-pintada { width: 76% !important; max-width: 76% !important; }
+  canvas.ilus.ancha { width: 86% !important; max-width: 86% !important; margin-left: auto !important; transform: none !important; }
+  canvas.dress-ilus { width: 88% !important; max-width: 88% !important; }
+  header + canvas.lago-hero, footer canvas.lago-hero { width: 84% !important; max-width: 84% !important; }
+  .icono { height: 42px; }
+  .camino { max-width: 64%; }
+  .con-escenas .escena-fija > .camino { max-width: 64%; }
+  .dress-grid { grid-template-columns: 1fr; gap: 16px; }
+  .dress-grid p { font-size: 14px; }
+  .dress-grid a { font-size: 13px; }
+  .cuenta { max-width: 290px; gap: 8px; }
+  .cuenta b { font-size: 24px; }
+  .cuenta span { font-size: 8.5px; letter-spacing: .14em; }
+  .lista { max-width: 300px; }
+  .item { padding: 12px 2px; }
+  .item strong { font-size: 16px; }
+  .item span { font-size: 12.5px; }
+  .item .flecha { font-size: 16px; }
+  .copiar, .no-ir { font-size: 13px; }
+  .btn { font-size: 11px; padding: 12px 22px; letter-spacing: .22em; }
+  .rsvp { max-width: 290px; }
+  .campo label { font-size: 9.5px; }
+  .campo input { font-size: 16px; padding: 10px 2px; }
+  .opcion span { font-size: 13px; padding: 10px 6px; }
 }
 </style>
 </head>
