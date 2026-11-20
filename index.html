@@ -275,7 +275,8 @@ canvas.ilus-pintada { display: block; height: auto; }
 .pie-rsvp { margin: 10px 0 0; font-style: normal; color: var(--ink-soft); font-size: 17px; }
 
 /* ---------- Cierre ---------- */
-footer { text-align: center; padding: 84px 0 48px; }
+footer { text-align: center; padding: 40px 0 env(safe-area-inset-bottom); min-height: 78svh; display: flex; flex-direction: column; justify-content: center; }
+footer .lugar-hero { margin-top: 12px; }
 .monograma { font-family: var(--font-script); font-size: calc(66px * var(--script-scale)); line-height: 1; margin: 8px 0 0; }
 footer .lago-hero { margin-top: 26px; }
 
@@ -535,7 +536,7 @@ footer .lago-hero { margin-top: 26px; }
       <p class="eyebrow">Código de vestimenta</p>
       <h2 class="titulo"><div class="escrito lienzo" data-vb="1081 190" data-img="e4" data-pad="34 34" style="--w:1081;--fs:244;aspect-ratio:1081/190" role="img" aria-label="Formal de jardín" data-trazos='[{"a":24.0,"d":["M7.0 49.0 L15.0 48.0 L45.0 51.0 L59.0 50.0 L64.0 52.0"]},{"a":26.1,"d":["M27.0 50.0 L27.0 63.0 L33.0 94.0 L37.0 99.0 L49.0 97.0 L59.0 93.0 L69.0 93.0 L83.0 90.0"]},{"a":26.0,"d":["M37.0 99.0 L35.0 104.0 L35.0 115.0 L41.0 141.0"]},{"a":29.7,"d":["M149.0 81.0 L149.0 85.0 L155.0 100.0 L162.0 107.0 L164.0 127.0 L167.0 135.0 L166.0 144.0"]},{"a":28.4,"d":["M161.0 106.0 L166.0 103.0 L172.0 94.0 L181.0 86.0 L194.0 80.0 L201.0 79.0 L204.0 81.0"]},{"a":24.6,"d":["M219.0 81.0 L218.0 102.0 L220.0 116.0 L225.0 122.0 L223.0 126.0"]},{"a":28.4,"d":["M224.0 121.0 L232.0 115.0 L238.0 104.0 L250.0 92.0 L257.0 89.0 L261.0 95.0 L263.0 108.0 L268.0 113.0 L265.0 127.0"]},{"a":27.1,"d":["M267.0 112.0 L273.0 110.0 L285.0 95.0 L294.0 92.0 L298.0 97.0 L301.0 107.0 L304.0 127.0"]},{"a":27.1,"d":["M319.0 93.0 L328.0 84.0 L339.0 78.0 L347.0 76.0 L353.0 77.0 L358.0 82.0 L365.0 95.0 L367.0 106.0 L366.0 109.0 L368.0 113.0 L368.0 125.0 L366.0 129.0 L368.0 131.0"]},{"a":27.0,"d":["M366.0 108.0 L364.0 109.0 L352.0 104.0 L344.0 104.0 L340.0 106.0 L332.0 115.0 L330.0 134.0 L333.0 137.0 L338.0 137.0 L357.0 130.0 L365.0 129.0"]},{"a":26.0,"d":["M396.0 46.0 L399.0 56.0 L401.0 95.0 L409.0 125.0 L409.0 133.0 L407.0 136.0"]},{"a":27.0,"d":["M520.0 37.0 L517.0 66.0 L520.0 76.0 L521.0 94.0 L524.0 101.0 L524.0 121.0 L518.0 127.0 L511.0 130.0 L502.0 130.0 L493.0 127.0 L487.0 121.0 L486.0 116.0 L486.0 100.0 L488.0 97.0 L497.0 91.0 L520.0 92.0"]},{"a":25.6,"d":["M600.0 116.0 L569.0 132.0 L556.0 131.0 L550.0 125.0 L548.0 121.0 L548.0 111.0 L551.0 93.0 L562.0 81.0 L573.0 80.0 L584.0 88.0 L584.0 100.0 L577.0 106.0 L571.0 108.0 L550.0 108.0"]},{"a":27.1,"d":["M654.0 175.0 L664.0 179.0 L675.0 177.0 L682.0 171.0 L687.0 162.0 L690.0 144.0 L690.0 131.0 L682.0 107.0 L677.0 100.0"]},{"a":27.1,"d":["M707.0 96.0 L713.0 84.0 L719.0 79.0 L732.0 74.0 L741.0 76.0 L750.0 84.0 L755.0 96.0 L756.0 107.0 L754.0 109.0 L753.0 125.0"]},{"a":24.4,"d":["M752.0 123.0 L744.0 126.0 L734.0 134.0 L727.0 137.0 L720.0 136.0 L716.0 129.0 L718.0 117.0 L725.0 107.0 L733.0 104.0 L742.0 104.0 L753.0 108.0"]},{"a":27.9,"d":["M775.0 79.0 L781.0 100.0 L787.0 106.0 L788.0 121.0 L795.0 137.0 L796.0 144.0"]},{"a":27.1,"d":["M786.0 105.0 L803.0 90.0 L821.0 79.0 L829.0 78.0 L834.0 82.0"]},{"a":28.0,"d":["M878.0 38.0 L878.0 67.0 L881.0 76.0 L881.0 94.0 L885.0 117.0 L884.0 122.0 L882.0 125.0 L870.0 130.0 L863.0 131.0 L853.0 129.0 L846.0 122.0 L846.0 111.0 L849.0 99.0 L856.0 92.0 L862.0 89.0 L880.0 92.0"]},{"a":28.0,"d":["M904.0 134.0 L916.0 134.0 L925.0 128.0 L923.0 86.0 L924.0 58.0 L920.0 52.0 L916.0 50.0 L908.0 50.0"]},{"a":28.0,"d":["M925.0 128.0 L931.0 134.0 L943.0 135.0"]},{"a":25.6,"d":["M913.0 31.0 L932.0 12.0 L940.0 8.0"]},{"a":29.7,"d":["M958.0 89.0 L962.0 98.0 L964.0 113.0 L970.0 119.0 L968.0 127.0"]},{"a":26.5,"d":["M969.0 118.0 L977.0 113.0 L981.0 105.0 L991.0 94.0 L998.0 90.0 L1004.0 89.0 L1009.0 97.0 L1009.0 108.0 L1013.0 123.0"]},{"a":25.2,"d":["M98.0 113.0 L98.0 128.0 L100.0 133.0 L104.0 136.0 L110.0 136.0 L117.0 133.0 L124.0 127.0 L131.0 113.0 L129.0 100.0 L126.0 94.0 L122.0 90.0 L115.0 89.0 L105.0 92.0 L100.0 100.0 L99.0 112.0"]}]'><canvas></canvas></div></h2>
       <p class="lede">Queremos verlos llenos de color.</p>
-      <canvas class="dress-ilus ilus-pintada" width="685" height="651" style="width:min(100%,480px,calc(46vh*1.0522))" role="img" aria-label="Acuarela de invitados con vestidos largos de colores y trajes de lino" data-nombre="dress4"></canvas>
+      <canvas class="dress-ilus ilus-pintada" width="900" height="886" style="width:min(100%,470px,calc(46vh*1.0158))" role="img" aria-label="Acuarela de invitados con vestidos largos de colores y trajes de lino" data-nombre="dress4"></canvas>
     </div></div>
     <div class="dress-grid">
       <div>
@@ -618,7 +619,6 @@ footer .lago-hero { margin-top: 26px; }
   <p class="eyebrow">Los esperamos</p>
   <div class="monograma"><div class="escrito lienzo" data-vb="768 132" data-img="e8" data-pad="34 34" style="--w:768;--fs:212;aspect-ratio:768/132" role="img" aria-label="Kari y Kike" data-trazos='[{"a":25.2,"d":["M10.0 23.0 L10.0 71.0 L15.0 104.0 L20.0 114.0 L20.0 119.0"]},{"a":29.8,"d":["M13.0 84.0 L33.0 83.0 L75.0 104.0 L84.0 110.0 L90.0 116.0 L90.0 118.0"]},{"a":30.0,"d":["M30.0 83.0 L34.0 68.0 L49.0 52.0 L65.0 42.0 L74.0 40.0"]},{"a":26.0,"d":["M100.0 63.0 L112.0 50.0 L119.0 46.0 L129.0 44.0 L138.0 46.0 L144.0 52.0 L149.0 61.0 L150.0 71.0 L148.0 75.0 L148.0 96.0"]},{"a":24.4,"d":["M147.0 92.0 L138.0 94.0 L122.0 102.0 L115.0 103.0 L112.0 100.0 L115.0 82.0 L121.0 74.0 L129.0 71.0 L147.0 74.0"]},{"a":29.7,"d":["M171.0 48.0 L175.0 57.0 L176.0 67.0 L181.0 74.0 L184.0 91.0 L189.0 103.0 L188.0 107.0"]},{"a":29.7,"d":["M180.0 71.0 L187.0 67.0 L199.0 55.0 L209.0 49.0 L223.0 47.0 L226.0 50.0"]},{"a":28.0,"d":["M247.0 69.0 L250.0 73.0 L253.0 85.0 L252.0 98.0"]},{"a":26.0,"d":["M410.0 123.0 L404.0 121.0 L396.0 114.0 L390.0 104.0 L407.0 86.0 L415.0 82.0 L418.0 83.0"]},{"a":30.0,"d":["M390.0 104.0 L383.0 105.0 L378.0 110.0 L367.0 114.0 L349.0 118.0 L345.0 116.0 L346.0 102.0 L361.0 82.0 L361.0 78.0 L375.0 61.0 L384.0 35.0 L381.0 17.0 L375.0 11.0 L371.0 10.0 L364.0 11.0 L351.0 17.0 L343.0 28.0 L340.0 37.0 L341.0 46.0 L352.0 70.0 L361.0 77.0"]},{"a":30.0,"d":["M361.0 82.0 L376.0 95.0 L383.0 104.0"]},{"a":24.1,"d":["M495.0 23.0 L496.0 81.0 L499.0 92.0 L500.0 107.0 L506.0 120.0"]},{"a":28.4,"d":["M498.0 89.0 L512.0 89.0 L520.0 84.0 L535.0 87.0 L552.0 100.0 L565.0 106.0 L577.0 118.0"]},{"a":28.4,"d":["M520.0 84.0 L520.0 73.0 L528.0 60.0 L538.0 50.0 L551.0 41.0 L559.0 38.0"]},{"a":22.0,"d":["M586.0 43.0 L593.0 41.0 L610.0 43.0"]},{"a":28.0,"d":["M596.0 68.0 L601.0 76.0 L603.0 84.0 L603.0 96.0"]},{"a":28.4,"d":["M626.0 17.0 L632.0 33.0 L635.0 66.0 L637.0 71.0 L640.0 73.0 L642.0 90.0 L641.0 98.0"]},{"a":27.9,"d":["M640.0 73.0 L650.0 71.0 L653.0 73.0 L666.0 75.0 L682.0 85.0 L692.0 95.0 L693.0 102.0"]},{"a":23.4,"d":["M649.0 71.0 L655.0 56.0 L671.0 40.0"]},{"a":27.1,"d":["M762.0 82.0 L749.0 92.0 L728.0 99.0 L718.0 98.0 L712.0 93.0 L709.0 76.0 L711.0 74.0 L714.0 60.0 L726.0 49.0 L739.0 47.0 L747.0 53.0 L748.0 57.0 L747.0 66.0 L744.0 70.0 L738.0 75.0 L731.0 77.0 L712.0 74.0"]}]'><canvas></canvas></div></div>
   <p class="lugar-hero">06 · 03 · 2027</p>
-  <canvas class="lago-hero ilus-pintada" width="1300" height="556" style="width:min(100%,760px)" role="img" aria-label="Acuarela del camino de piedra con farolas que baja a la explanada frente al lago" data-nombre="caminofinal"></canvas>
 </footer>
 
 <script>
@@ -703,7 +703,7 @@ function crearLienzo(el, anchos) {
   const lz = { el, cv, ctx: cv.getContext("2d"), m: document.createElement("canvas"), vw, vh, px, py, trazos, total, P: 0, img: null };
   const im = new Image();
   im.onload = () => { lz.img = im; lz.ult = null; revelar(lz, lz.P); };
-  im.src = "img/trazo/" + el.dataset.img + ".webp?v=13";
+  im.src = "img/trazo/" + el.dataset.img + ".webp?v=16";
   return lz;
 }
 function revelar(lz, P) {
@@ -888,7 +888,7 @@ function prepararIlus(cv) {
   const d = { cv, ctx: cv.getContext("2d"), o: document.createElement("canvas"), P: 0, listo: false };
   d.o.width = cv.width; d.o.height = cv.height;
   ilusDatos.set(cv, d);
-  Promise.all(["img/" + n + ".webp", "img/" + n + "_boceto.webp", "img/" + n + "_tiempo.png", "img/" + n + "_tiempo_boceto.png"].map(cargarImg)).then(([col, bos, tc, tb]) => {
+  Promise.all(["img/" + n + ".webp", "img/" + n + "_boceto.webp", "img/" + n + "_tiempo.png", "img/" + n + "_tiempo_boceto.png"].map(u => u + "?v=16").map(cargarImg)).then(([col, bos, tc, tb]) => {
     if (!col) return;
     d.col = col; d.bos = bos;
     const leer = im => { const c = document.createElement("canvas"); c.width = im.width; c.height = im.height; const x = c.getContext("2d"); x.drawImage(im, 0, 0);
