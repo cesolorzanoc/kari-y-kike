@@ -787,12 +787,21 @@ pintar();
 
 
 /* ===== Portada centrada en la primera pantalla ===== */
+// Alto realmente visible: en iPhone la barra de Safari tapa la parte de abajo de la pantalla
+const medidor = document.createElement("div");
+medidor.style.cssText = "position:fixed;top:0;left:0;width:0;height:100vh;height:100svh;visibility:hidden;pointer-events:none";
+document.body.appendChild(medidor);
+function altoVisible() {
+  const vv = window.visualViewport ? visualViewport.height : innerHeight;
+  return Math.min(innerHeight, vv, medidor.offsetHeight || innerHeight);
+}
 function centrarPortada() {
   const hero = document.querySelector("header.hero"), lago = hero && hero.nextElementSibling;
   if (!hero || !lago) return;
   hero.style.paddingTop = "0px";
   const alto = hero.offsetHeight + lago.getBoundingClientRect().height + parseFloat(getComputedStyle(lago).marginTop);
-  hero.style.paddingTop = Math.max(28, (innerHeight - alto) / 2) + "px";
+  // un poquito arriba del centro exacto, que visualmente se siente centrado
+  hero.style.paddingTop = Math.max(24, (altoVisible() - alto) * 0.44) + "px";
 }
 centrarPortada();
 addEventListener("load", centrarPortada);
@@ -839,7 +848,7 @@ const animados = [];
   // Resto: progreso según scroll (inicio = dónde empieza en pantalla, tramo = cuánto hay que bajar para completarlo)
   const reglas = [
     ["footer .lago-hero", "sc-pinta", 1.5, 0.5],
-    ["footer .monograma", "sc-pluma", 1.15, 0.4],
+    ["footer .monograma", "sc-pluma", 1.22, 0.4],
     ["footer .lugar-hero", "sc-sube", 1.1, 0.14],
     [".ilus, .dress-ilus", "sc-florece", 0.88, 0.68],
     [".titulo", "sc-pluma", 0.9, 0.3],
@@ -964,7 +973,7 @@ function medirEscenas() {
     let a = Infinity, z = -Infinity;
     for (const c of s.fija.children) { if (c.classList.contains("camino")) continue; const r = c.getBoundingClientRect(); if (!r.height) continue; a = Math.min(a, r.top - fr.top); z = Math.max(z, r.bottom - fr.top); }
     if (!isFinite(a)) { a = 0; z = alto; }
-    s.arriba = Math.max(8 - a, (vh - (z - a)) / 2 - a);
+    s.arriba = Math.max(8 - a, (altoVisible() - (z - a)) * 0.46 - a);
     s.a = a;
     s.fija.style.top = s.arriba + "px";
     s.esc.style.height = (alto + vh * EXTRA) + "px";
