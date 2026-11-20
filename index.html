@@ -703,7 +703,7 @@ function crearLienzo(el, anchos) {
   const lz = { el, cv, ctx: cv.getContext("2d"), m: document.createElement("canvas"), vw, vh, px, py, trazos, total, P: 0, img: null };
   const im = new Image();
   im.onload = () => { lz.img = im; lz.ult = null; revelar(lz, lz.P); };
-  im.src = "img/trazo/" + el.dataset.img + ".webp";
+  im.src = "img/trazo/" + el.dataset.img + ".webp?v=13";
   return lz;
 }
 function revelar(lz, P) {
